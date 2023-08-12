@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  font-family: "Calibri", sans-serif;
+  color: white;
+}
+#container{
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  width: 80%;
+}
+#breach{
+  background-color:rgb(2,48,102);
+}
+.box{
+  text-align: center;
+  border-radius: 20px;
+  background-color: rgb(84,1,44);
+  padding: 5px;
+  margin: 20px;
+}
+.types{
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+.types:hover{
+  opacity: 1;
+}

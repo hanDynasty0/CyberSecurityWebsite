@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://CyberSecurityWebsite.hanfang.repl.co/denialOfService/denialOfService.css" rel="stylesheet" type="text/css" />
+    <title>About Cybersecurity</title>
+  </head>
+  <body>
+    <div id = "container">
+      <div class = "box" id = "DOSgeneral">
+        <h1>Denial Of Service Attacks</h1>
+        <p>A Denial Of Service (DOS) attack is a cyber attack with the goal of making a software or hardware device unusable by essentially spamming requests on the device, causing an overload of its resources (e.g. memory, CPU, bandwidth, etc.). DOS attacks aren't used to breach data unless it is used as a way to prevent the target device's user from intervening while other malicious attacks are made on the target after the DOS attack. </p>
+        <h2>How are DDOS different from DOS attacks?</h2>
+        <p>DDOS stands for "Distributed Denial of Service". The objective of a DDOS attack is the same as that of a DOS attack: to render a software or hardware device unusable. However, the way DOS and DDOS attacks do this is slightly different. DOS attacks spam requests on the target device from a single device. DDOS attacks spam requests on the target device from multiple devices. DDOS attacks often use a network of multiple previously compromised or infected devices called "botnets". In other words, a DDOS attack is a hacker ganging up on a target alongside a bunch of zombies (botnet), whereas DOS attack is more one-on-one. </p>
+      </div>
+
+      <div class = "box" id = "forkbomb">
+        <h2>Example: Fork Bomb</h2>
+          <p>A while ago, one of my friends asked me to test a piece of code. Here it is:<br>
+
+          <div id = "java">  
+            import java.io.File;<br>
+            import java.io.FileWriter;<br>
+            import java.io.IOException;<br>
+            import java.awt.Desktop;<br>
+
+            public class Main {<br>
+            &emsp; public static void main(String[] args) throws IOException {<br>
+
+            &emsp;&emsp;&emsp;&emsp;File f = new File("robert.bat");<br>
+            &emsp;&emsp;&emsp;&emsp;f.createNewFile();<br>
+            &emsp;&emsp;&emsp;&emsp;FileWriter z = new FileWriter("robert.bat");<br>
+            &emsp;&emsp;&emsp;&emsp;z.write("@echo off\n%0|%0");<br>
+            &emsp;&emsp;&emsp;&emsp;z.close();<br>
+            &emsp;&emsp;&emsp;&emsp;Desktop dp = Desktop.getDesktop();<br>
+            &emsp;&emsp;&emsp;&emsp;dp.open(f);<br>
+            &emsp;&emsp;}<br>
+            }<br>
+          </div>
+          <br>
+        And yes, this is in Java.<br>
+        So anyways I did in fact run this code on the Eclipse IDE, twice.<br>
+        And it turned out it was a fork bomb.<br> 
+        Fork bombs are a unique form of DOS attack that has to be activated on the target's device, similar to a virus. The idea of a fork bomb is to quickly and continually create new files. This happens because each file created by a fork bomb then duplicates, and create more files that also duplicate, meaning that the number of files created on your device will grow exponentially. All of this activity consumes your device's memory and requires more and more CPU processing power to create files until the device crashes. Pressing Ctrl+C won't stop the fork bomb, and even if the code is terminated on the IDE it was run on, the device will continue to be super slow.<br></p>
+        <img height = 300px src = "https://CyberSecurityWebsite.hanfang.repl.co/images/fork-bomb-71b61de8-c3a4-433e-881f-089a162db1f-resize-750.webp">
+       <p>
+         <em>(Above: Visual representing the duplication process of a fork bomb)</em><br><br>
+         However, fork bombs are pretty harmless. They don't do permanent damage to a device, and all you would have to do to restore the device's resources is to force your device to shut down and reboot. So you can try running the above Java code yourself to see a DOS attack in action (at your own risk).<br>
+        There are ways to prevent fork bombs altogether. An installed antivirus should be able to advise caution to a user before running a fork bomb. On computers that run on Linux or Unix, a user can enter the command "ulimit-u" or "ulimit-a" to see the number of processes that the device's operating system can run, and then edit that number using the command "ulimit -$ -u (your number of choice)" in order to lower the number and prevent too many files from being created when a fork bomb is detonated. Unfortunately, since fork bombs seem to be easier to implement on Linux or Unix systems, I could not find any more ways to prevent fork bombs on other systems such as Windows, although the fork bomb code I have provided also works on Windows devices (I did try).
+        </p>
+      </div>
+      <div id = "homeNav">Back to Menu</div>
+    </div>
+    <script src = "https://CyberSecurityWebsite.hanfang.repl.co/denialOfService/denialOfService.js"></script>
+  </body>
+</html>
